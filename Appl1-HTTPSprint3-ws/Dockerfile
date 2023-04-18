@@ -21,7 +21,7 @@ CMD ["bash", "./application1"]
 ## docker run -it  --rm --name appl1httpsprint3 -p8030:8030/tcp  --privileged appl1httpsprint3:1.0  /bin/bash
 
 ## COPIARE FILE CONFIG IN CONTAINER!
-## docker cp sprint3Config.json ca26a27eae1b:/application1-1.0/bin/sprint3Config.json
+## docker cp sprint3Config.json 5aabde3942bc:/application1-1.0/bin/sprint3Config.json
 
 ## ESPERIMENTO
 ## docker run --link itunibovirtualrobot2023_default:wenv -it --net appl1_default appl1httpsprint3:1.0  ???

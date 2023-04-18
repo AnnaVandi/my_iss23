@@ -1,0 +1,373 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+    <!--
+<link rel="stylesheet" type="text/css" href="../css/issStyle1.css">
+<script type="text/javascript" src="../css/issStyle.js"></script>
+-->
+<style type="text/css">
+body
+{
+    margin-left:  30px;
+    margin-right: 30px;
+};
+
+P
+{
+    /* font-family: Tahoma; */
+    font-size: 10pt;
+};
+
+a, a:visited, a:active, a:link, a:hover {
+    text-decoration: underline;
+    color: #545454;
+    background-color: transparent;
+	font-size: 93%;
+}
+
+a:hover {
+    background-color: #cccccc;
+}
+
+
+hr {
+    clear: both;
+    height: 1px;
+    color: #242424;
+    background-color: transparent;
+}
+
+h1, h2, h3 {
+    color: #242424;
+    clear: left;
+    font: 100% Tahoma, Helvetica, Arial, sans-serif;
+    margin-bottom: 0.5em;
+    padding-top: 0.5em;
+	border-radius: 10px;
+	padding: 5px;
+}
+
+top {
+	width: 100%;
+}
+
+
+#i {
+    color: #ff1010;
+}
+tt{
+	font-family: "Arial";
+    font-size: 90%;
+	color: #006600;
+}
+em{
+	font-family: "Arial";
+    font-size: 80%;
+	font-weight: bold;
+	border-style:solid;
+	border-color: #abe876;
+    color: #1632cc;
+}
+bc{
+	font-family: "Arial";
+	font-size: 90%;
+	font-weight: bold;
+    color: #990000;
+	background-color: #fcf8c7;
+}
+ks{
+	font-family: "Arial";
+	font-weight: bold;
+    color: #0000CD	;
+	font-size: 90%;
+}
+kc{
+	font-family: "Arial";
+	font-weight: bold;
+    color: #008000	;
+	font-size: 90%;
+}
+pre{
+	font-family: "Consolas";
+	font-size: 85%;
+	background-color: #f5f5f5;
+	border: 1.5px solid silver;
+	padding: 5px;
+}
+m{
+	font-family: "Helvetica";
+	line-height: 100%;
+ 	font-size: 75%;
+}
+div.body{
+	 
+    font-size: 18px;
+}
+k{
+    color: #990000;
+	font-weight: bold;
+	font-size: 90%;
+}
+h1 {
+    font-size: 150%;
+    background-color: #b2c0ff;
+	padding: 10px;
+}
+
+h2 {
+    background-color: #9ed8ff;
+    font-size: 130%;
+}
+
+h3 {
+	background-color: #e6ccff;
+    font-size: 100%;
+}
+h4 {
+    background-color: #ccffcc;
+    font-size: 100%;
+	width: 95%;
+	border-radius: 5px;
+	padding: 2px;
+}
+h5 {
+    background-color: #d5ffb0;
+    font-size: 100%;
+
+}
+div.req{
+	background-color: #d9ffb3;
+    font-size: 18px;
+	width: 700px;
+    border: 3px solid green;
+    padding: 15px;
+    margin: 10px;
+}
+div.remark{
+	background-color: #E3F2FD;
+    border: 1.5px solid #d5f2ed;
+    padding: 15px;
+    margin: 10px;
+	border-radius: 25px;
+}
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+ol, ul, li {
+  margin: 0;
+  margin-left: 10px;
+  padding: 0;
+  padding-bottom: 5px;
+}
+
+table, th, td {
+	border: 1px solid black;
+}
+
+img {
+	border: 1.5px solid #d5f2ed
+
+}
+
+a, a:visited, a:active, a:link, a:hover {
+    text-decoration: underline;
+    color: #545454;
+    background-color: transparent;
+}
+
+div.wrapdesc{
+	width: 90%;
+	margin: auto;
+}
+
+div.imagedesc{
+	width: 85%;
+	margin: auto;
+}
+</style>
+    
+<head>
+   
+<title>TemplateToFill</title></head>
+    
+<body>
+<div id="top">
+<h1>LABORATORIO DI INGEGNERIA DEI SISTEMI SOFTWARE: SPRINT 3<font size="5"></font> </h1>
+</div>  
+
+<div class="body">
+    <h2>Introduzione</h2>
+        <h3> Nello Sprint 2:</h3>
+        <ul>
+            <li>Il robot doveva gestire i comandi stop/resume mentre percorreva il perimetro della stanza</li>
+        <li>la logica applicativa riceveva comandi in locale dalla CmdConsole</li>
+        </ul>
+        <h5> Architettura logica sprint 2: </h5>
+        <img src="ArchLogica_s2.PNG" alt="architettura_logica_step3" width="100%" height="50%"></img>
+
+    <h2>Requisiti</h2>
+
+
+ 
+<div class="remark">
+    In questa nuova fase dello sviluppo, dobbiamo superare le limitazioni che ci siamo imposti in precedenza, pertanto la <b>CmdConsole deve diventare remota</b>.
+    Il sistema che ne consegue, è pertanto un <b>sistema distribuito</b>.
+</div>
+
+ 
+
+<h2>Analisi dei Requisiti</h2>
+<div>
+In particolare, detto P uno dei protocolli definiti in ProtocolType:
+<ul>
+<li>L’applicazione <b>Appl1 come un ente attivo (actor)</b>: capace di ricevere <b>messaggi</b> (comandi start/stop/resume) via P (protocol-indipendent)e interpretarli come comandi a Appl1(e quindi a VirtualRobot23).</li>
+<li>CmdConsole deve diventare un actor che interagisce con un utente umano e che invia comandi ad Appl1 usando il protocollo P.</li>
+</ul>
+</div>
+
+<h2>Analisi del Problema</h2>
+Analisi delle problematiche che sorgono dai requisiti forniti.
+<br>
+<ul>
+    <h3>CmdConsole</h3>
+<li>La cmdConsole deve diventare remota quindi dobbiamo introdurre un supporto alla comunicazione: <br>
+Noi abbiamo già un protocollo di comunicazione tra cmdConsole e Appl1 dallo Sprint2, 
+ma non possiamo riutilizzarlo perché il requisiti specifica che il progetto sia protocol-indipendent:
+ occorre quindi <b>introdurre un nuovo supporto alla comunicazione</b>
+ <li>La console deve essere cofnigurata da un <b>configuratore</b> o da un pattern factory tramite un <b>file di configurazione</b>; Console e Appl1 dovranno essere configurati in modo concorde.
+</li>
+Come possiamo individuare dinamicamente un attore, ora che non lavoro più in locale?
+</ul>
+</li>
+<h3>Appl1 e Robot con WS</h3>
+<li>Interconnessione tra Appl1 e vrobot <b>protocol-indipendent</b>. 
+<br>
+
+<u>Come facciamo?</u>
+  
+ La connessione è l’ente astratto e poi ci saranno  enti concreti 
+        che incarnano i protocolli di comunicazione.
+        <ul>
+        <li><strong>HttpConnection</strong> cosa fa?<br />Implementa tutti questi metodi attraverso una funzione di comodo che si chiama <strong>sendHTTP</strong> (stringa json)<br />sfruttando un supporto http ( per ora usiamo Apache)<br />Siccome sendHttp mi <strong>retituisce delle stringhe</strong>:<br />grazie al <strong>sincronismo</strong> tipico di questo protocollo, su HTTP ho sempre req e resp.<br />In caso di una forward (fire &amp; forget) la risposta viene ignorata!</li>
+        </ul>
+        <ul>
+        <li><strong>WsConnection</strong>, invece?<br />WSConnection, &egrave; figlia di un meccanismo asincrono, pertanto <strong>non &egrave; possibile garantire un messaggio di risposta</strong>.<br />Quindi, se io faccio una forward, <strong>non posso sapere se &egrave; andata a buon fine o no</strong>!</li>
+        </ul>
+        <div>Come posso risolvere questo problema?</div>
+    <h5>Possibile risposta:</h5>
+    <div><strong>WsConnection</strong> viene vista anche come <strong>IObservable</strong> perch&eacute; io devo fare in modo che, se gli arriva un messaggio, questo emerga a livello applicativo.</div>
+    <div style="padding-left: 40px;">Essendo osservabile, potr&ograve; associarle uno o pi&ugrave; Observer: in questo modo, quando un <strong>messaggio</strong> viene inviato dal Server Al client, grazie all'Observer, siamo in grado di catturarlo e gestirlo.</div>
+    <div style="padding-left: 40px;">&nbsp;</div>
+    <div>Tutti i messaggi di stato, ovvero gli esiti delle operazioni:</div>
+    <ul>
+    <li>E' andato tutto a buon fine?</li>
+    <li>C&rsquo;&egrave; stata una collisione?</li>
+    <li>Potrebbero esserci anche informazioni non sollecitate che arrivano spontaneamente:
+    <ul>
+    <li>se il robot passa sotto al Sonar, sulla Connection arrivano le informazioni sulla distanza rilevata!</li>
+    </ul>
+    </li>
+    </ul>
+    <p>Saranno necessari metodi per aggiungere e togliere degli Observer.</p>
+    <div><i>Perch&eacute; non definisco anche HTTPConnection come Observer?</i>
+    <h5>Possibile risposta:</h5>
+    Perché in HTTP ricevo sempre una risposta: quello che andrei ad osservare è la risposta che passa.
+    
+    <h4>Architettura logica proposta alla fine dell’analisi:</h4>
+    <img src="./Appl1FinalArchitecture.png" alt="mbot" width="100%" height="100%">
+<br>
+<h3>Piano di Lavoro</h3> 
+<p>
+
+<div><i>Occorre implementare due componenti:</div>
+    <br>
+<ol>
+<li><span style="font-weight: 400;">il componente che abilita la comunicazione lato server</span> </li>
+<li><span style="font-weight: 400;">quello che permetta di eseguire le chiamate lato client.</span></li>
+</ol>
+</i>
+
+<blockquote>
+<div><strong>Lato CmdConsole:</strong>
+
+<ol>
+<li>Refactoring della classe Appl1Sprint2CmdConsole al fine di rendere la console remota</li>
+<li>Configuratore (legge il file di configurazione e fa il setup)</li>
+
+<li>Mantengo invariata l'interfaccia grafica della console gi&agrave; sviluppata.</li>
+</ol>
+</blockquote>
+<br>
+<blockquote>
+<div><strong>Lato Appl1:</strong>
+<ol>
+<li>Lasciamo intatto il componente Appl1Core: esso &egrave; un componente gi&agrave; testato e funzionante.</li>
+<li>Configuratore (legge il file di configurazione e fa il setup)</li>
+<li><span style="font-weight: 400;">L'application designer dovr&agrave; scrivere Appl1MessageHandler, al fine</span><span style="font-weight: 400;">&nbsp;di iniettare nel server "il collante" .</span></li>
+<li>Realizzare le classi concrete in gradi di rappresentare i diversi protocolli di comunicazione</li>
+<li>Implementare <span style="font-weight: 400;">VrobotHLMovesInteractionAsynch per il protocollo WS, con opportuna estensione degli Observer.</span></li>
+</ol>
+</div>
+</blockquote>
+<div></div>
+<ul>
+
+</ul>
+     
+</p>
+<h4>Tempo Previsto:</h4>
+<p> Lo sviluppo lato Appl1 può essere fatto parallelamente allo sviluppo di CmdConsole, con la premura di agire in modo consistente per le scelte da intraprendere.</p>
+
+
+
+<div>
+<h2>Test plans</h2> 
+  Come pianifico il test (da leggere guida per test plans e test)</div>
+ 
+
+<div>
+<h2>Project</h2>
+
+
+</div>
+<h2>Testing</h2> 
+ 
+
+<h2>Deployment</h2> 
+
+<p>Il deployment con Docker &egrave; un processo che implica la distribuzione di un'applicazione in un ambiente di produzione utilizzando la tecnologia di containerizzazione Docker.</p>
+<p>Il processo di deployment con Docker segue il seguente flusso:</p>
+<ol>
+<li>Creazione dell'immagine Docker dell'applicazione</li>
+<li>Push dell'immagine su un registro Docker&nbsp;</li>
+<li>Esecuzione dell'immagine in un container sul server di produzione</li>
+</ol>
+<p>Vantaggi del delployment con Docker:</p>
+<ul>
+<li>Creare un ambiente riproducibile e portabile per l'esecuzione di un'applicazione, indipendentemente dal sistema operativo e dall'hardware sottostante.</li>
+<li>Automatizza il processo di deployment</li>
+</ul>
+ 
+<h2>Maintenance</h2> 
+ 
+<!-- USEFUL
+<table style="width:100%" border="1">
+<tr>
+<td style="width:50%">
+</td>
+<td></td>
+</tr>
+</table>
+-->
+	      	
+<br/><br/> 	
+</div>  
+
+<div style="background-color:rgba(86, 56, 253, 0.9); width:100%;text-align:left;color:white">
+By Anna Vandi email: anna.vandi@studio.unibo.it, <br>
+<img src="./fotoVandi.png" alt="mbot" width="15%" height="15%">
+<br>
+GIT repo: https://github.com/AnnaVandi/issLab23
+</div> 
+</body>
+</html>

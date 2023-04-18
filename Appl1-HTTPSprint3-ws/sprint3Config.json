@@ -1,1 +1,1 @@
-{"virtualrobotip":"localhost", "virtualrobotconn":"ws", "steptime":"570", "pathobs": "true", "robotstateobs": "false"}
+{"virtualrobotip":"172.19.0.1", "virtualrobotconn":"http", "steptime":"570", "pathobs": "true", "robotstateobs": "false"}
